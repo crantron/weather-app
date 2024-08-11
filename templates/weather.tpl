@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Report</title>
-    <link rel="stylesheet" href="/static/css/tailwind.css" />
+    <link rel="stylesheet" href="https://crantron-goweather.s3.us-east-2.amazonaws.com/static/css/output.css" />
     <body style="background: linear-gradient(to top, #09203f 0%, #537895 100%);">
     <h2>Written in GO Lang on the Edge - App Build Version: {{.Version}}</h2>
     <div>
