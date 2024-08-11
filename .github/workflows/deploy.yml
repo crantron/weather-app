@@ -36,7 +36,7 @@ jobs:
           aws-region: us-east-2
 
       - name: Upload CSS to S3
-        run: aws s3 cp static/css/tailwind.css s3://crantron-goweather.s3.us-east-2.amazonaws.com/static/css/tailwind.css
+        run: aws s3 cp static/css/tailwind.css s3://crantron-goweather/static/css/tailwind.css
 
       - name: Deploy to Fastly
         run: |
