@@ -42,7 +42,7 @@ jobs:
         run: |
             sudo apt-get update
             wget https://github.com/fastly/cli/releases/download/v10.12.3/fastly_10.12.3_linux_amd64.deb -O fastly_cli.deb
-            sudo dpkg -i fastly_cli.deb || echo "Failed to install Fastly CLI" && exit 1
+            sudo dpkg -i fastly_cli.deb
 
       - name: Deploy to Fastly
         run: |
