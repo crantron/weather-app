@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/fastly/compute-sdk-go/fsthttp"
+	"time"
 )
 
 const API_BASE_URL string = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
@@ -50,4 +51,14 @@ func GetWeather(ctx context.Context, lat string, long string) (*WeatherResponse,
 	}
 
 	return &weather, nil
+}
+
+func GetDay(inputDate string) (string, error) {
+	layout := "2006-01-02"
+	date, err := time.Parse(layout, inputDate)
+	if err != nil {
+		return "", err
+	}
+
+	return date.Weekday().String(), nil
 }

@@ -16,9 +16,6 @@ import (
 //go:embed templates
 var templateFS embed.FS
 
-//go:embed static/css/tailwind.css
-var staticFS embed.FS
-
 //go:generate npm run build
 
 func main() {
@@ -44,7 +41,11 @@ func main() {
 				fmt.Fprintf(w, "Error reading weather data: ", err)
 			}
 
-			tmpl, err := template.ParseFS(templateFS, "templates/weather.tpl")
+			funcMap := template.FuncMap{
+				"GetDate": weather.GetDay,
+			}
+
+			tmpl, err := template.New("weather.html").Funcs(funcMap).ParseFS(templateFS, "templates/weather.html")
 			if err != nil {
 				fmt.Fprintf(w, "Error loading template:", err)
 			}

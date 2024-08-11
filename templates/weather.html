@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather Report</title>
+        <link rel="stylesheet" href="https://crantron-goweather.s3.us-east-2.amazonaws.com/static/css/output.css" />
+    </head>
+    <body style="background: linear-gradient(to top, #09203f 0%, #537895 100%);">
+        <h2>Written in GO Lang on the Edge - App Build Version: {{.Version}}</h2>
+        <div class="flex justify-center items-center">
+            <div class="bg-white p-6 rounded-lg shadow-xl w-1/2">
+                <h1 class="text-xl font-semibold mb-2">{{.City}}, {{.Country}}</h1>
+                <p class="mb-4">
+                    <strong>Timezone:</strong> {{.TimeZone}}<br>
+                    <strong>Latitude:</strong> {{.Latitude}}<br>
+                    <strong>Longitude:</strong> {{.Longitude}}<br>
+                    <strong>IP Address:</strong> {{.IPAddress}}<br><br><br>
+                    <div>Weather in: {{.ResolvedAddress}}</div>
+                    <div>Current temperature: {{.Temperature}}°F</div>
+                    <div>Conditions: {{.Conditions}}</div>
+                </p>
+                <div>
+                    <div class="grid grid-cols-10 gap-4">
+                            {{range .Days}}
+                            <div class="" style="margin-bottom: 2rem;">
+                                <div class="">
+                                    <img src="https://placehold.it/300x200" alt="" class="card-img-top">
+                                    <div class="">
+                                        <h5 class="">{{.Datetime}}</h5>
+                                        <h5>{{GetDay .Datetime}}</h5>
+                                        <p class="">Max: {{.TemperatureMax}}°F, Min: {{.TemperatureMin}}°F, Conditions: {{.Conditions}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {{end}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

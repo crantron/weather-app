@@ -6,7 +6,6 @@ toolchain go1.21.6
 
 require (
 	github.com/fastly/compute-sdk-go v1.0.0
-	github.com/gorilla/mux v1.8.1
 	github.com/oschwald/geoip2-golang v1.11.0
 )
 

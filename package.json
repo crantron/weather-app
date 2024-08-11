@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss build -o static/css/tailwind.css",
-    "watch": "tailwindcss build -o static/css/tailwind.css --watch"
+    "build": "tailwindcss build templates/css/input.css -o static/css/output.css",
+    "watch": "tailwindcss build templates/css/input.css -o static/css/output.css --watch"
   },
   "author": "",
   "license": "ISC",
