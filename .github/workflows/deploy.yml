@@ -38,6 +38,13 @@ jobs:
       - name: Upload CSS to S3
         run: aws s3 cp static/css/tailwind.css s3://crantron-goweather/static/css/tailwind.css
 
+      - name: Install Fastly CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+          wget -qO- https://github.com/fastly/cli/releases/latest/download/fastly_v0.40.0_linux_amd64.deb -O fastly_cli.deb
+          sudo dpkg -i fastly_cli.deb
+
       - name: Deploy to Fastly
         run: |
           echo "FASTLY_API_TOKEN=${{ secrets.FASTLY_API_TOKEN }}" > fastly.toml
