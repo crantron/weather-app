@@ -45,8 +45,6 @@ jobs:
             sudo dpkg -i fastly_cli.deb
 
       - name: Deploy to Fastly
-        run: |
-          echo "FASTLY_API_TOKEN=${{ secrets.FASTLY_API_TOKEN }}" > fastly.toml
-          fastly compute publish
         env:
           FASTLY_API_TOKEN: ${{ secrets.FASTLY_API_TOKEN }}
+        run: fastly compute publish
