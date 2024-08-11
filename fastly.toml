@@ -1,0 +1,13 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = []
+cloned_from = "mMFRCSsFePbU5ZYYCudr36"
+description = "A basic starter kit that demonstrates routing, simple synthetic responses and overriding caching rules."
+language = "go"
+manifest_version = 3
+name = "Default starter for Go"
+service_id = "mMFRCSsFePbU5ZYYCudr36"
+[scripts]
+    env_vars = ["GOARCH=wasm", "GOOS=wasip1"]
+    build = "go build -o bin/main.wasm ."
