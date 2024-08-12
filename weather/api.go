@@ -62,3 +62,11 @@ func GetDay(inputDate string) (string, error) {
 
 	return date.Weekday().String(), nil
 }
+
+func GetImgNameMap(condition string) (string, error) {
+	m := make(map[string]string)
+	m["Clear"] = "Clear"
+	m["Partially cloudy"] = "partiallycloudy"
+
+	return m[condition], nil
+}

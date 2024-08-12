@@ -42,7 +42,8 @@ func main() {
 			}
 
 			funcMap := template.FuncMap{
-				"GetDate": weather.GetDay,
+				"GetDay":        weather.GetDay,
+				"GetImgNameMap": weather.GetImgNameMap,
 			}
 
 			tmpl, err := template.New("weather.html").Funcs(funcMap).ParseFS(templateFS, "templates/weather.html")
