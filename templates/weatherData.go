@@ -13,6 +13,8 @@ type Weather struct {
 	ResolvedAddress string
 	Temperature     float64
 	Conditions      string
+	Description     string
+	Address         string
 	Days            []weather.Day
 }
 
@@ -27,6 +29,8 @@ func GetWeatherData(
 	resolvedAddress string,
 	temperature float64,
 	conditions string,
+	description string,
+	address string,
 	days []weather.Day,
 ) *Weather {
 	return &Weather{
@@ -40,6 +44,8 @@ func GetWeatherData(
 		ResolvedAddress: resolvedAddress,
 		Temperature:     temperature,
 		Conditions:      conditions,
+		Description:     description,
+		Address:         address,
 		Days:            days,
 	}
 }

@@ -13,6 +13,8 @@ const API_BASE_URL string = "https://weather.visualcrossing.com/VisualCrossingWe
 
 type WeatherResponse struct {
 	ResolvedAddress   string            `json:"resolvedAddress"`
+	Description       string            `json:"description"`
+	Address           string            `json:"address"`
 	CurrentConditions CurrentConditions `json:"currentConditions"`
 	Days              []Day             `json:"days"`
 }

@@ -29,7 +29,7 @@ func main() {
 
 		if r.URL.Path == "/" {
 			w.Header().Set("Content-Type", "text/html; charset=utf-8")
-			r.CacheOptions.TTL = 5
+			r.CacheOptions.TTL = 0
 
 			details, err := location.GetDetailsFromIp(r.RemoteAddr)
 			if err != nil {
@@ -62,6 +62,8 @@ func main() {
 				weatherData.ResolvedAddress,
 				weatherData.CurrentConditions.Temperature,
 				weatherData.CurrentConditions.Conditions,
+				weatherData.Description,
+				weatherData.Address,
 				weatherData.Days,
 			)
 
