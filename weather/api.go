@@ -24,6 +24,7 @@ type CurrentConditions struct {
 	Conditions  string  `json:"conditions"`
 	WindSpeed   float64 `json:"wspd"`
 	Humidity    float64 `json:"humidity"`
+	Icon        string  `json:"icon"`
 }
 
 type Day struct {
@@ -31,6 +32,7 @@ type Day struct {
 	TemperatureMax float64 `json:"tempmax"`
 	TemperatureMin float64 `json:"tempmin"`
 	Conditions     string  `json:"conditions"`
+	Icon           string  `json:"icon"`
 }
 
 func GetWeather(ctx context.Context, lat string, long string) (*WeatherResponse, error) {
@@ -55,6 +57,24 @@ func GetWeather(ctx context.Context, lat string, long string) (*WeatherResponse,
 	return &weather, nil
 }
 
+func GetWeatherRaw(ctx context.Context, lat string, long string) (*fsthttp.Response, error) {
+	key, err := fastly.GetSecretStoreKey("keys", "VISUAL_CROSSING_WEATHER")
+	if err != nil {
+		return nil, err
+	}
+
+	url := API_BASE_URL + lat + "," + long + "?key=" + key
+
+	req, err := fsthttp.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := req.Send(ctx, "visualcrossing2")
+
+	return resp, nil
+}
+
 func GetDay(inputDate string) (string, error) {
 	layout := "2006-01-02"
 	date, err := time.Parse(layout, inputDate)
@@ -65,10 +85,10 @@ func GetDay(inputDate string) (string, error) {
 	return date.Weekday().String(), nil
 }
 
-func GetImgNameMap(condition string) (string, error) {
-	m := make(map[string]string)
-	m["Clear"] = "Clear"
-	m["Partially cloudy"] = "partiallycloudy"
-
-	return m[condition], nil
-}
+//func GetHotOrCold(maxTemp string) (string, error) {
+//	m := make(map[string]string)
+//	m["Clear"] = "Clear"
+//	m["Partially cloudy"] = "partiallycloudy"
+//
+//	return m[condition], nil
+//}

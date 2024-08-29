@@ -12,7 +12,7 @@
                 <h1 class="text-xl font-semibold mb-2">{{.City}}, {{.Country}}</h1>
                 <div class="mb-4 grid grid-cols-2">
                     <div>
-                        <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/{{GetImgNameMap .Conditions}}.png" alt="" style="width:200px" class="">
+                        <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/{{.Icon}}.png" alt="" style="width:200px" class="">
                         <div>Current temperature: {{.Temperature}}°F</div>
                         <div>{{.Description}}</div>
                     </div>
@@ -30,7 +30,7 @@
                                 <h5 class="font-bold">{{GetDay .Datetime}}</h5>
                                 <h5 class="">{{.Datetime}}</h5>
                                 <div class="">
-                                    <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/{{GetImgNameMap .Conditions}}.png" alt="" class="">
+                                    <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/{{.Icon}}.png" alt="" class="">
 
                                     <div class="">
                                         <p class="">Max: {{.TemperatureMax}}°F Min: {{.TemperatureMin}}°F Conditions: {{.Conditions}}</p>
@@ -42,14 +42,14 @@
                     </div>
             </div>
         </div>
-        <footer class="bg-gray-700 text-white text-center p-4 grid grid-cols-2">
+        <footer class="bg-gray-700 text-white p-4 grid grid-cols-2">
             <div>
-                <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/fastly.svg" style="height:50px; width:auto; display:inline-flex" alt="Fastly Compute"/>
-                <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/amazon-s3.svg" style="height:50px; width:auto; display:inline-flex" alt="Amazon s3"/>
-                <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/file-type-go-gopher.svg" style="height:50px; width:auto; display:inline-flex" alt="Go Lang"/>
+                <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/fastly.svg" style="padding-right:20px;height:50px; width:auto; display:inline-flex" alt="Fastly Compute"/>
+                <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/amazon-s3.svg" style="padding-right:20px;height:50px; width:auto; display:inline-flex" alt="Amazon s3"/>
+                <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/file-type-go-gopher.svg" style="padding-right:20px;height:50px; width:auto; display:inline-flex" alt="Go Lang"/>
                 <img src="https://crantron-goweather.s3.us-east-2.amazonaws.com/file-type-tailwind.svg" style="height:50px; width:auto; display:inline-flex" alt="Tailwind"/>
             </div>
-            <div>App Build Version: {{.Version}}</div>
+            <div class="text-right">App Build Version: {{.Version}}</div>
         </footer>
     </body>
 </html>
