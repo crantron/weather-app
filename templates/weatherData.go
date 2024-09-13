@@ -1,6 +1,6 @@
 package templates
 
-import "compute-starter-kit-go/weather"
+import "weather-app/weather"
 
 type Weather struct {
 	Version         string

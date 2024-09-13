@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/arguably-open-pheasant.edgecompute.app.iml" filepath="$PROJECT_DIR$/.idea/arguably-open-pheasant.edgecompute.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/weather-app.iml" filepath="$PROJECT_DIR$/.idea/weather-app.iml" />
     </modules>
   </component>
 </project>

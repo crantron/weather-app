@@ -1,12 +1,12 @@
 package weather
 
 import (
-	"compute-starter-kit-go/fastly"
 	"context"
 	"encoding/json"
 	"fmt"
 	"github.com/fastly/compute-sdk-go/fsthttp"
 	"time"
+	"weather-app/fastly"
 )
 
 const API_BASE_URL string = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"

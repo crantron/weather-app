@@ -1,9 +1,6 @@
 package main
 
 import (
-	"compute-starter-kit-go/location"
-	"compute-starter-kit-go/templates"
-	"compute-starter-kit-go/weather"
 	"context"
 	"embed"
 	_ "embed"
@@ -12,6 +9,9 @@ import (
 	"html/template"
 	"io/ioutil"
 	"os"
+	"weather-app/location"
+	"weather-app/templates"
+	"weather-app/weather"
 )
 
 //go:embed templates
@@ -30,6 +30,7 @@ func main() {
 
 		if r.URL.Path == "/" {
 			serveFrontPage(ctx, w, r)
+			return
 		}
 
 		//serve react build
