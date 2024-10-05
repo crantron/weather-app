@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/fastly/compute-sdk-go/fsthttp"
+	"github.com/fastly/compute-sdk-go/rtlog"
 	"time"
 	"weather-app/fastly"
 )
@@ -58,21 +59,35 @@ func GetWeather(ctx context.Context, lat string, long string) (*WeatherResponse,
 }
 
 func GetWeatherRaw(ctx context.Context, lat string, long string) (*fsthttp.Response, error) {
+	var err error
+	s3logging := rtlog.Open("s3-logging")
 	key, err := fastly.GetSecretStoreKey("keys", "VISUAL_CROSSING_WEATHER")
 	if err != nil {
 		return nil, err
 	}
 
+	retries := 3
 	url := API_BASE_URL + lat + "," + long + "?key=" + key
 
-	req, err := fsthttp.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
+	for i := 0; i < retries; i++ {
+		req, err := fsthttp.NewRequest("GET", url, nil)
+		if err != nil {
+			return nil, err
+		}
+		resp, err := req.Send(ctx, "visualcrossing2")
+		if err != nil {
+			fmt.Fprintln(s3logging, "write %v", err.Error())
+			return nil, err
+		}
+		if resp.StatusCode == fsthttp.StatusOK {
+			defer resp.Body.Close()
+			return resp, nil
+		}
+		defer resp.Body.Close()
+		time.Sleep(2 * time.Second)
 	}
 
-	resp, err := req.Send(ctx, "visualcrossing2")
-
-	return resp, nil
+	return nil, fmt.Errorf("error fetching response: %s", err)
 }
 
 func GetDay(inputDate string) (string, error) {
@@ -84,11 +99,3 @@ func GetDay(inputDate string) (string, error) {
 
 	return date.Weekday().String(), nil
 }
-
-//func GetHotOrCold(maxTemp string) (string, error) {
-//	m := make(map[string]string)
-//	m["Clear"] = "Clear"
-//	m["Partially cloudy"] = "partiallycloudy"
-//
-//	return m[condition], nil
-//}
