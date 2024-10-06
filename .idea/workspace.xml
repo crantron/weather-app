@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4ae7ab6-ebb0-4d90-a238-24a75177c0ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/foursquare/api.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/opencage/api.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fastly.toml" beforeDir="false" afterPath="$PROJECT_DIR$/fastly.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/weather/api.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather/api/param-validate/historic.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather/api/param-validate/timeline.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weather/api/param-validate/validateInterface.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/foursquare/api.go" beforeDir="false" afterPath="$PROJECT_DIR$/foursquare/api.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

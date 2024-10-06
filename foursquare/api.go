@@ -41,8 +41,8 @@ func GetNearby(ctx context.Context, lat string, long string, category string) (*
 func getCategoryId(name string) (string, error) {
 	categoryMap := map[string]string{
 		"beaches":     "4bf58dd8d48988d1e2941735",
-		"parks":       "4bf58dd8d48988d1e2931735",
-		"restaurants": "4bf58dd8d48988d1e0931736",
+		"galleries":   "4bf58dd8d48988d1e2931735",
+		"restaurants": "4d4b7105d754a06374d81259",
 		"trails":      "4bf58dd8d48988d159941735",
 		"breweries":   "50327c8591d4c4b30a586d5d",
 	}
